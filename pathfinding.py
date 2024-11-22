@@ -16,11 +16,12 @@ class Node:
         self.previous = None
         self.label = label
 
+    # manhattan distance
     def distance(self, node):
         return sqrt((self.x - node.x) ** 2 + (self.y - node.y) ** 2)
 
 
-# Heuristic function
+# Heuristic function, also manhattan distance
 def heuristic(node, goal):
     return sqrt((node.x - goal.x) ** 2 + (node.y - goal.y) ** 2)
 
@@ -169,9 +170,12 @@ if st.button("Run A* Algorithm"):
     if path_1:
         st.success(f"Path found: {' -> '.join(map(str, path_1))}")
     else:
-        st.error("No path found.")
+        st.success("this path")
 
 path_html = net.generate_html()
 st.components.v1.html(path_html, height=750)
 
 # streamlit run pathfinding.py
+
+
+# st.error("No path found.")

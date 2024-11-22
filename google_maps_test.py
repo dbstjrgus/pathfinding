@@ -37,7 +37,7 @@ def get_coords(api_key, address):
         print("Failed to make the request.")
         return 0, 0
 
-
+# get distance between address
 def get_distance(begin, goal, api_key):
     base_url = "https://maps.googleapis.com/maps/api/distancematrix/json"
     params = {
