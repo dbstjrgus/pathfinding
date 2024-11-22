@@ -1,6 +1,9 @@
 import requests
+import os
+from dotenv import load_dotenv, dotenv_values
 
-API_KEY = 'AIzaSyDQuIKyW6EAbnqSId02ATMte8ItuAnpguo'
+load_dotenv()
+API_KEY = dotenv_values(".env").get("API_KEY")
 
 '''
 url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&key={API_KEY}"
@@ -36,6 +39,7 @@ def get_coords(api_key, address):
     else:
         print("Failed to make the request.")
         return 0, 0
+
 
 # get distance between address
 def get_distance(begin, goal, api_key):
@@ -79,3 +83,14 @@ lati, longi = get_coords(API_KEY, address)
 
 print(f"Latitude: {lati}")
 print(f"Longitude: {longi}")
+
+# Important libraries
+
+# Load secret .env file
+load_dotenv()
+# Store credentials
+pwd = os.getenv('MY_PASSWORD')
+key = os.getenv('MY_API_KEY')
+# Verify it worked
+if pwd is not None and key is not None:
+    print('It worked')
