@@ -7,13 +7,14 @@ import streamlit as st
 
 # Node class
 class Node:
-    def __init__(self, id, x=0, y=0):
+    def __init__(self, id, x=0, y=0, label=None):
         self.id = id
         self.x = x
         self.y = y
         self.fscore = float('inf')  # Initialize to infinity
         self.gscore = float('inf')  # Initialize to infinity
         self.previous = None
+        self.label = label
 
     def distance(self, node):
         return sqrt((self.x - node.x) ** 2 + (self.y - node.y) ** 2)
@@ -159,7 +160,6 @@ st.title("Interactive A* Pathfinding Visualization")
 start_node = st.selectbox("Select Start Node", options=range(len(same_nodes)))
 goal_node = st.selectbox("Select Goal Node", options=range(len(same_nodes)))
 
-
 if st.button("Run A* Algorithm"):
     path_1 = a_star_search(start_node, goal_node, net, same_nodes=same_nodes, edge_weights=edge_weights)
     print(start_node)
@@ -173,3 +173,5 @@ if st.button("Run A* Algorithm"):
 
 path_html = net.generate_html()
 st.components.v1.html(path_html, height=750)
+
+# streamlit run pathfinding.py
