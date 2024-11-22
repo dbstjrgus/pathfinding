@@ -17,5 +17,6 @@ f_score = g_score + h_distance
 The algorithm makes the decisions based on which has the optimal f score, effectively balancing what is shortest and what intuitively feels good. This allows the algorithm to be more efficient than dijkstra's algorithm, which checks nodes that are "clearly" not a good stop to make. 
 
 # How to run
-After cloning the repo, run the streamlit app directly on the terminal (doesn't matter if you enter your email or not)
+After cloning the repo, run the streamlit app directly on the terminal on file pathfinding.py (doesn't matter if you enter your email or not)
 after which you will be redirected to play with the sim 
+Other jupyter notebooks were for my practicing and experimenting stuff. 
